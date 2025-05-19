@@ -1,0 +1,7 @@
+.backgroundimage {
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+    position: relative;
+    height: 200px;
+}

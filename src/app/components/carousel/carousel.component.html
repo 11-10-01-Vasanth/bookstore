@@ -1,0 +1,102 @@
+<div>
+    <img src="https://www.bookswagon.com/images/promotionimages/web/booksofmonth.jpg?v=6.1" class="img-fluid" alt="">
+</div>
+
+<div class="d-none d-md-block">
+    <div class="row mt-1">
+        <div class="col-md-8">
+            <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active" *ngFor="let i of carouselImages; let a=index"
+                        [class.active]="a===0">
+                        <img [src]="i" class="d-block w-100" alt="...">
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon bg-danger" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon bg-danger" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div>
+                <img src="https://www.bookswagon.com/images/staticimages/collins-cambridge.jpg?v=4.2" class="img-fluid"
+                    alt="">
+            </div>
+            <div>
+                <img src="https://www.bookswagon.com/images/staticimages/cambridge-university.jpg?v=4.2"
+                    class="mt-1 img-fluid" alt="">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="mx-5">
+    <div class="d-block d-md-none">
+        <div class="row mt-1">
+            <div class="col-md-8 mb-2">
+                <div id="carouselExampleControls2" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner" style="border-radius: 15px;">
+                        <div class="carousel-item active" *ngFor="let i of carouselImages; let a=index"
+                            [class.active]="a===0">
+                            <img [src]="i" class="d-block w-100" style="height: 30vh;" alt="...">
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls2"
+                        data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon bg-danger" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls2"
+                        data-bs-slide="next">
+                        <span class="carousel-control-next-icon bg-danger" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="d-flex overflow-scroll">
+            <div class="m-2">
+                <img src="https://www.bookswagon.com/images/staticimages/collins-cambridge.jpg?v=4.2" class="" alt=""
+                    style="height: 20vh;">
+            </div>
+            <div class="m-2">
+                <img src="https://www.bookswagon.com/images/staticimages/cambridge-university.jpg?v=4.2" class="" alt=""
+                    style="height: 20vh;">
+            </div>
+        </div>
+        <div class="d-flex overflow-scroll">
+            <div class="m-4 text-center" *ngFor="let i of badges; let a=index">
+                <div style="font-size: 2.5rem;">
+                    <i [class]="i.icon"></i>
+                </div>
+                <div>
+                    {{i.name}}
+                </div>
+            </div>
+        </div>
+        <img class="img-fluid mt-2 w-100" style="height: 30vh;"
+            src="https://www.bookswagon.com/images/promotionimages/mobile/awardwinning.jpg?v=6.2" alt="">
+    </div>
+
+    <div class="d-none d-md-block">
+        <div class="row p-5 text-center">
+            <div class="col" *ngFor="let i of badges; let a=index">
+                <div style="font-size: 2.5rem;">
+                    <i [class]="i.icon"></i>
+                </div>
+                <div>
+                    {{i.name}}
+                </div>
+            </div>
+        </div>
+        <img class="img-fluid" src="https://www.bookswagon.com/images/promotionimages/web/awardwinning.jpg?v=6.2"
+            alt="">
+    </div>
+</div>

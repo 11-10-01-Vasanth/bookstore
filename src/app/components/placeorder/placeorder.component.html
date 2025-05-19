@@ -1,0 +1,24 @@
+<div class="text-danger text-center">
+    <h3>Place Your Order</h3>
+</div>
+<div class="mb-3">
+    <form #order="ngForm" (ngSubmit)="saveOrder(order.value)">
+        <label for="exampleInputPassword1" class="form-label">OrderType</label>
+        <div class="form-check">
+            <input class="form-check-input" name="orderType" [(ngModel)]="orderType" type="radio" id="flexRadioDefault1"
+                value="BUY">
+            <label class="form-check-label" for="flexRadioDefault1">
+                Buy
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" name="orderType" [(ngModel)]="orderType" type="radio" id="flexRadioDefault1"
+                value="RENT">
+            <label class="form-check-label" for="flexRadioDefault1">
+                Rent
+            </label>
+        </div>
+        <button type="submit" class="btn btn-outline-primary">Order Now</button>
+    </form>
+
+</div>

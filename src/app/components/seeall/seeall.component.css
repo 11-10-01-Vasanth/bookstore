@@ -1,0 +1,23 @@
+.backgroundimage {
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+    position: relative;
+    height: 200px;
+}
+
+.badge-discount {
+    position: absolute;
+    top: -30px;
+    left: -50px;
+    width: 75px;
+    height: 24px;
+    text-align: center;
+    background-color: red;
+    color: white;
+    padding: 4px 10px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    /* border-radius: 0 2px 6px rgba(0, 0, 0, 0.2); */
+    /* z-index: 1; */
+}

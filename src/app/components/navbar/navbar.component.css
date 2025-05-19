@@ -1,0 +1,8 @@
+.nav1:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.placehold1::placeholder{
+    font-size: 11px;
+}

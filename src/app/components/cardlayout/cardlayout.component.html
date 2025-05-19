@@ -1,0 +1,24 @@
+<div class="d-flex overflow-auto">
+  <div class="m-2" *ngFor="let c of nowTrending;">
+    <div class="card border border-0" style="width: 8rem; cursor: pointer;" (click)="getBookDetail(c.id)">
+      <div style="background-image: url({{c.imageUrl}});" class="backgroundimage d-flex align-items-end">
+        <div class="position-absolute p-2"
+          style="top: 0; right: 0; color: white; background-color: red; border-radius: 50%;">
+          <b>10%</b>
+        </div>
+        <div style="border: 1px solid rgb(224, 35, 35); background-color: white; color:rgb(224, 35, 35);"
+          class="text-center p-1 w-100">
+          <b>Quick View</b>
+        </div>
+      </div>
+      <div class="card-body text-center">
+        <h5 class="card-title" style="font-size: .7rem;color: rgb(100, 99, 99);"><b>{{c.title}}</b></h5>
+        <p class="card-text" style="font-size: 0.7rem;">{{c.author}}</p>
+        <span *ngFor="let s of createArray(c.rating)">
+          <i class="bi bi-star-fill text-warning"></i>
+        </span>
+        <p class="card-text" style="color: rgb(224, 35, 35);"><i class="bi bi-currency-rupee"></i>{{c.price}}</p>
+      </div>
+    </div>
+  </div>
+</div>
