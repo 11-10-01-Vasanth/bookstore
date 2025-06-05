@@ -1,12 +1,11 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { Routes } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
 import { BookdetailComponent } from './components/bookdetail/bookdetail.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { PlaceorderComponent } from './components/placeorder/placeorder.component';
 import { SeeallComponent } from './components/seeall/seeall.component';
 
-const routes: Routes = [
+export const routes: Routes = [
   {
     path: '',
     redirectTo: 'home',
@@ -33,9 +32,3 @@ const routes: Routes = [
     component: SeeallComponent
   }
 ];
-
-@NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
-})
-export class AppRoutingModule { }

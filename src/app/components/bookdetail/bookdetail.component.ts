@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { BookserviceService } from '../../services/bookservice.service';
 import { Router } from '@angular/router';
+import { CardlayoutComponent } from "../cardlayout/cardlayout.component";
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-bookdetail',
-  standalone: false,
+  imports: [CardlayoutComponent,CommonModule],
   templateUrl: './bookdetail.component.html',
   styleUrl: './bookdetail.component.css'
 })
@@ -48,6 +50,11 @@ export class BookdetailComponent implements OnInit {
 
   public toCheckout() {
     this.router.navigate(['checkout'])
+  }
+
+  public seeall(content:any){
+    this.service.seeAllContent = content;
+    this.router.navigate(['category/'+content])
   }
 
 }

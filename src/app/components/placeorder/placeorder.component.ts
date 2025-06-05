@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { BookserviceService } from '../../services/bookservice.service';
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-placeorder',
-  standalone: false,
+  imports: [FormsModule,CommonModule],
   templateUrl: './placeorder.component.html',
   styleUrl: './placeorder.component.css'
 })

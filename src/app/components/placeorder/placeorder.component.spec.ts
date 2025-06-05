@@ -8,7 +8,7 @@ describe('PlaceorderComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [PlaceorderComponent]
+      imports: [PlaceorderComponent]
     })
     .compileComponents();
 

@@ -1,75 +1,81 @@
 <div class="text-center">
-    <h3 style="font-family: 'Times New Roman', Times, serif;">{{content}}</h3>
+  <h3 style="font-family: 'Times New Roman', Times, serif;">{{content}}</h3>
 </div>
 
 <div>
-    <div class="row">
-        <div class="col">
-            <div class="ms-3">
-                <div class="row my-4">
-                    <div class="col-9">Refine your Search</div>
-                    <div class="col-3">
-                        <i class="bi bi-funnel-fill text-danger"></i>
-                    </div>
-                    <div>
-                        <label for="customRange3" class="form-label">Price Range:</label>
-                        <div class="text-danger"><i class="bi bi-currency-rupee"></i>0 - <i class="bi bi-currency-rupee"></i>10000</div>
-                        <input type="range" min="10000" max="50000" [(ngModel)]="pricerange"
-                            (ngModelChange)="onPriceRange($event)" class="form-range" step="10000"
-                            id="customRange3">
-                    </div>
-                    <div>
-                        <label for="customRange3" class="form-label">Discount Range:</label>
-                        <div class="text-danger">0 - 100</div>
-                        <input type="range" min="10000" max="50000" [(ngModel)]="pricerange"
-                            (ngModelChange)="onPriceRange($event)" class="form-range" step="10000"
-                            id="customRange3">
-                    </div>
-                </div>
-            </div>
+  <div class="row">
+    <div class="col">
+      <div class="ms-3">
+        <div class="row my-4">
+          <div class="col-9">Refine your Search</div>
+          <div class="col-3">
+            <i class="bi bi-funnel-fill text-danger"></i>
+          </div>
+          <div>
+            <label for="customRange3" class="form-label">Price Range:</label>
+            <div class="text-danger"><i class="bi bi-currency-rupee"></i>0 - <i
+                class="bi bi-currency-rupee"></i>10000</div>
+            <input type="range" min="10000" max="50000" [(ngModel)]="pricerange"
+              (ngModelChange)="onPriceRange($event)" class="form-range"
+              step="10000"
+              id="customRange3">
+          </div>
+          <div>
+            <label for="customRange3" class="form-label">Discount Range:</label>
+            <div class="text-danger">0 - 100</div>
+            <input type="range" min="10000" max="50000" [(ngModel)]="pricerange"
+              (ngModelChange)="onPriceRange($event)" class="form-range"
+              step="10000"
+              id="customRange3">
+          </div>
         </div>
-        <div class="col-10">
-            <div class="row my-4">
-                <div class="col-9"><b>{{length}} results found</b></div>
-                Sort By:
-                <div class="col">
-                    <select class="form-select form-select-sm" aria-label="Default select example">
-                        <option selected>Relevance</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
-                    </select>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-3 my-2" *ngFor="let c of bookData;">
-                    <div class="border border-1 d-flex justify-content-center p-4"
-                        style="box-shadow: inset 0 0 10px rgba(82, 79, 79, 0.2);">
-                        <div class="card border border-0" style="width: 9rem; cursor: pointer;"
-                            (click)="getBookDetails(c.id)">
-                            <div class="badge-discount">
-                                10%
-                            </div>
-                            <div style="background-image: url({{c.imageUrl}});"
-                                class="backgroundimage d-flex align-items-end">
-                            </div>
-                            <div class="card-body text-center">
-                                <h5 class="card-title" style="font-size: .7rem;color: rgb(100, 99, 99);">
-                                    <b>{{c.title}}</b>
-                                </h5>
-                                <p class="card-text" style="font-size: 0.7rem;">{{c.author}}</p>
-                                <span *ngFor="let s of createArray(c.rating)">
-                                    <i class="bi bi-star-fill text-warning"></i>
-                                </span>
-                                <p class="card-text" style="color: rgb(224, 35, 35);"><i
-                                        class="bi bi-currency-rupee"></i><b>{{c.price}}</b></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
-        </div>
+      </div>
     </div>
+    <div class="col-10">
+      <div class="row my-4">
+        <div class="col-9"><b>{{length}} results found</b></div>
+        Sort By:
+        <div class="col">
+          <select class="form-select form-select-sm"
+            aria-label="Default select example">
+            <option selected>Relevance</option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-3 my-2" *ngFor="let c of bookData;">
+          <div class="border border-1 d-flex justify-content-center p-4"
+            style="box-shadow: inset 0 0 10px rgba(82, 79, 79, 0.2);">
+            <div class="card border border-0"
+              style="width: 9rem; cursor: pointer;"
+              (click)="getBookDetails(c.id)">
+              <div class="badge-discount">
+                10%
+              </div>
+              <div style="background-image: url({{c.imageUrl}});"
+                class="backgroundimage d-flex align-items-end">
+              </div>
+              <div class="card-body text-center">
+                <h5 class="card-title"
+                  style="font-size: .7rem;color: rgb(100, 99, 99);">
+                  <b>{{c.title}}</b>
+                </h5>
+                <p class="card-text" style="font-size: 0.7rem;">{{c.author}}</p>
+                <span *ngFor="let s of createArray(c.rating)">
+                  <i class="bi bi-star-fill text-warning"></i>
+                </span>
+                <p class="card-text" style="color: rgb(224, 35, 35);"><i
+                    class="bi bi-currency-rupee"></i><b>{{c.price}}</b></p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
 </div>

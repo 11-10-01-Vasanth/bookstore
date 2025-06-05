@@ -1,72 +1,65 @@
-<div class="text-danger text-center">
-    <h3 style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">Checkout Your Order</h3>
+<!-- Checkout Heading -->
+<div class="text-center my-4">
+  <h3 class="text-danger fw-bold" style="font-family: 'Poppins', sans-serif;">Checkout Your Order</h3>
 </div>
-<div class="container mt-5">
-    <div class="row">
-        <div class="col-12 col-md-5">
-            <div style="font-family: 'Courier New', Courier, monospace;">
-                <b style="font-size: 25px;" class="text-danger">{{bookData.title}}</b>
-            </div>
-            <div class="row border border-md-2">
-                <div class="col-4 mt-3">
-                    <img [src]="bookData.imageUrl" height="200px" alt="">
-                </div>
-                <div class="col-8 mt-4">
-                    <div style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">
-                        Author: <a href="" class="text-decoration-none"
-                            style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">{{bookData.author}}</a>
-                    </div>
-                    <div style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">
-                        Publisher: <a href="" class="text-decoration-none"
-                            style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">{{bookData.publisher}}</a>
-                    </div>
-                    <div style="font-size: 2rem;" class="text-danger"><i
-                            class="bi bi-currency-rupee"></i><b>{{bookData.price}}</b></div>
-                    <div><del>M.R.P. <i class="bi bi-currency-rupee"></i>300 </del></div>
-                    <div>Save: <i class="bi bi-currency-rupee"></i>71(22%)</div>
-                    <div class="text-success">
-                        Avaiable
-                    </div>
-                    <div class="text-danger">
-                        Ships within 6-8 Buisness Days
-                    </div>
-                </div>
-            </div>
+
+<!-- Main Content -->
+<div class="container">
+  <div class="row row-cols-1 row-cols-md-2 g-4">
+
+    <!-- Book Summary Card -->
+    <div class="card shadow-sm p-3 mb-4">
+      <div class="row g-0">
+        <div class="col-md-4 d-flex align-items-center justify-content-center">
+          <img [src]="bookData.imageUrl" class="img-fluid rounded-start" alt="Book Image" style="max-height: 200px;">
         </div>
-        <div class="col-12 col-md-7">
-            <h4>Shipping Details</h4>
-            <form #userdetail="ngForm" (ngSubmit)="saveUser(userdetail.value)">
-                <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label">Email address</label>
-                    <input type="email" name="customerEmail" [(ngModel)]="customerEmail" class="form-control"
-                        id="exampleInputEmail1" aria-describedby="emailHelp">
-                    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-                </div>
-                <div class="mb-3">
-                    <label for="exampleInputPassword1" class="form-label">Password</label>
-                    <input type="password" name="customerPassword" [(ngModel)]="customerPassword" class="form-control">
-                </div>
-                <div class="mb-3">
-                    <label for="exampleInputPassword1" class="form-label">Name</label>
-                    <input type="text" name="customerName" [(ngModel)]="customerName" class="form-control">
-                </div>
-                <div class="mb-3">
-                    <label for="exampleInputPassword1" class="form-label">Phone</label>
-                    <input type="number" name="customerPhone" [(ngModel)]="customerPhone" class="form-control">
-                </div>
-                <div class="mb-3">
-                    <label for="exampleInputPassword1" class="form-label">Address</label>
-                    <input type="text" name="customerAddress" [(ngModel)]="customerAddress" class="form-control">
-                </div>
-                <!-- <div class="mb-3 form-check">
-                <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                <label class="form-check-label" for="exampleCheck1">Check me out</label>
-            </div> -->
-                <div class="text-end">
-                    <button type="submit" class="btn btn-outline-primary">Save & Continue<i
-                            class="bi bi-arrow-right-short"></i></button>
-                </div>
-            </form>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title text-danger fw-semibold">{{ bookData.title }}</h5>
+            <p class="card-text mb-1"><strong>Author:</strong> {{ bookData.author }}</p>
+            <p class="card-text mb-1"><strong>Publisher:</strong> {{ bookData.publisher }}</p>
+            <p class="text-danger fs-4 mb-1"><i class="bi bi-currency-rupee"></i>{{ bookData.price }}</p>
+            <p class="mb-1"><del>M.R.P. ₹300</del> | <span class="text-success fw-medium">Save ₹71 (22%)</span></p>
+            <p class="text-success mb-1">Available</p>
+            <p class="text-danger mb-0">Ships within 6–8 Business Days</p>
+          </div>
         </div>
+      </div>
     </div>
+
+    <!-- Shipping Details Form -->
+    <div class="card shadow p-4">
+      <h4 class="mb-4 text-danger">Shipping Details</h4>
+      <form #userdetail="ngForm" (ngSubmit)="saveUser(userdetail.value)">
+        <div class="row g-3">
+          <div class="col-md-6">
+            <label class="form-label">Email</label>
+            <input type="email" name="customerEmail" [(ngModel)]="customerEmail" class="form-control" required>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Password</label>
+            <input type="password" name="customerPassword" [(ngModel)]="customerPassword" class="form-control" required>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Name</label>
+            <input type="text" name="customerName" [(ngModel)]="customerName" class="form-control" required>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Phone</label>
+            <input type="tel" name="customerPhone" [(ngModel)]="customerPhone" class="form-control" required>
+          </div>
+          <div class="col-12">
+            <label class="form-label">Address</label>
+            <textarea name="customerAddress" [(ngModel)]="customerAddress" class="form-control" rows="2" required></textarea>
+          </div>
+        </div>
+        <div class="text-end mt-4">
+          <button type="submit" class="btn btn-danger">
+            Save & Continue <i class="bi bi-arrow-right-short"></i>
+          </button>
+        </div>
+      </form>
+    </div>
+
+  </div>
 </div>

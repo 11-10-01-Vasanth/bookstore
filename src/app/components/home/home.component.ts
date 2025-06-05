@@ -1,10 +1,13 @@
-import { Component, Input, input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { BookserviceService } from '../../services/bookservice.service';
 import { Router } from '@angular/router';
+import { CardlayoutComponent } from "../cardlayout/cardlayout.component";
+import { CarouselComponent } from "../carousel/carousel.component";
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-home',
-  standalone: false,
+  imports: [CardlayoutComponent, CarouselComponent,CommonModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })

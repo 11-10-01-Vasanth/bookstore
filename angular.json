@@ -3,19 +3,9 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "book": {
+    "bookstorefk": {
       "projectType": "application",
-      "schematics": {
-        "@schematics/angular:component": {
-          "standalone": false
-        },
-        "@schematics/angular:directive": {
-          "standalone": false
-        },
-        "@schematics/angular:pipe": {
-          "standalone": false
-        }
-      },
+      "schematics": {},
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
@@ -23,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/book",
+            "outputPath": "dist/bookstorefk",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -37,7 +27,9 @@
               }
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "./node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "./node_modules/bootstrap-icons/font/bootstrap-icons.css"
             ],
             "scripts": [],
             "server": "src/main.server.ts",
@@ -74,10 +66,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "book:build:production"
+              "buildTarget": "bookstorefk:build:production"
             },
             "development": {
-              "buildTarget": "book:build:development"
+              "buildTarget": "bookstorefk:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -109,6 +101,6 @@
     }
   },
   "cli": {
-    "analytics": "408be7cc-1339-4494-8b7e-00dcd6ec15c2"
+    "analytics": "10d5a4d0-ecb7-4cb0-92aa-fcbe91bbb160"
   }
 }

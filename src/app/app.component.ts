@@ -1,13 +1,14 @@
-import { Component, OnInit } from '@angular/core';
-import { title } from 'process';
-import { BookserviceService } from './services/bookservice.service';
+import { Component } from '@angular/core';
+import { RouterModule } from '@angular/router';
+import { FooterComponent } from "./components/footer/footer.component";
+import { NavbarComponent } from "./components/navbar/navbar.component";
 
 @Component({
   selector: 'app-root',
+  imports: [RouterModule, FooterComponent, NavbarComponent],
   templateUrl: './app.component.html',
-  standalone: false,
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  
+
 }

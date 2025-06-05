@@ -1,14 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { BookserviceService } from '../../services/bookservice.service';
 import { Router } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-seeall',
-  standalone: false,
+  imports: [FormsModule,CommonModule],
   templateUrl: './seeall.component.html',
   styleUrl: './seeall.component.css'
 })
-
 export class SeeallComponent implements OnInit {
   constructor(private service: BookserviceService, private router: Router) { }
   content: any
@@ -22,15 +23,10 @@ export class SeeallComponent implements OnInit {
   }
 
   public getBookDetails(id: any) {
-    this.service.getBook(id).then((res) => {
-      console.log(res+"yugyg");
-      this.service.bookDetail = res;
-    }).catch((err) => {
-      console.log("Error at SeeAll" + err);
-    })
+    localStorage.setItem("bookid",id);
     setTimeout(() => {
       this.router.navigate(['bookdetail/' + id])
-    }, 600);
+    }, 1000);
   }
 
   public createArray(n: number): any[] {

@@ -1,42 +1,44 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { firstValueFrom } from 'rxjs';
+import { firstValueFrom, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
-
 export class BookserviceService {
 
-  constructor(private httpClient: HttpClient) { }
+ private url = "http://localhost:8080/book/";
 
-  url = "http://localhost:8080/book/";
+  constructor(private httpClient: HttpClient) {}
 
-  bookDetails: any
+  // Store all books
+  bookDetails: any;
 
-  public getBooks() {
-    this.httpClient.get(this.url + "getbooks").subscribe((res) => {
-      this.bookDetails = res
-    }, (err) => {
-      return err;
-    })
+  // Get all books
+  public getBooks(): void {
+    this.httpClient.get(this.url + "getbooks").subscribe({
+      next: (res) => {
+        this.bookDetails = res;
+      },
+      error: (err) => {
+        console.error("Error fetching books:", err);
+      }
+    });
   }
 
-  bookDetail: any
-
-  public getBook(id: any): Promise<any> {
-    return firstValueFrom(this.httpClient.get(`${this.url}getbook/${id}`))
-  }
-
-  userdata: any
-  customer: any
-
-  public buyBook(ordertype: any) {
-    this.customer = this.userdata
-    const response = this.httpClient.post(this.url + "buybook/" + this.bookDetail.id + "/" + ordertype.orderType, this.customer)
-    return response;
-  }
-
+  // Store selected book
+  bookDetail: any;
   seeAllContent: any
 
+  // Get book by ID
+  public getBook(id: any): Promise<any> {
+    return firstValueFrom(this.httpClient.get(`${this.url}getbook/${id}`));
+  }
+
+  // Buy book
+  userdata: any; // Ideally this should have a proper interface like `User`
+  public buyBook(ordertype: any): Observable<any> {
+    const customer = this.userdata;
+    return this.httpClient.post(`${this.url}buybook/${this.bookDetail.id}/${ordertype.orderType}`, customer);
+  }
 }

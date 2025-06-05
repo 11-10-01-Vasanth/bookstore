@@ -8,7 +8,7 @@ describe('SeeallComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [SeeallComponent]
+      imports: [SeeallComponent]
     })
     .compileComponents();
 

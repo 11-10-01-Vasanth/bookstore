@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { BookserviceService } from '../../services/bookservice.service';
 import { Router } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-checkout',
-  standalone: false,
+  imports: [FormsModule,CommonModule],
   templateUrl: './checkout.component.html',
   styleUrl: './checkout.component.css'
 })

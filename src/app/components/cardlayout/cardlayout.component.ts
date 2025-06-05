@@ -1,10 +1,11 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { BookserviceService } from '../../services/bookservice.service';
 import { Router } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-cardlayout',
-  standalone: false,
+  imports: [CommonModule],
   templateUrl: './cardlayout.component.html',
   styleUrl: './cardlayout.component.css'
 })
@@ -16,6 +17,7 @@ export class CardlayoutComponent implements OnInit {
   nowTrending: any
   ngOnInit(): void {
     this.nowTrending = this.service.bookDetails
+    console.log(localStorage.getItem("bookid"));
   }
 
   public createArray(n: number): any[] {

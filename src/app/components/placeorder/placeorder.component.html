@@ -1,24 +1,51 @@
-<div class="text-danger text-center">
-    <h3>Place Your Order</h3>
-</div>
-<div class="mb-3">
-    <form #order="ngForm" (ngSubmit)="saveOrder(order.value)">
-        <label for="exampleInputPassword1" class="form-label">OrderType</label>
-        <div class="form-check">
-            <input class="form-check-input" name="orderType" [(ngModel)]="orderType" type="radio" id="flexRadioDefault1"
-                value="BUY">
-            <label class="form-check-label" for="flexRadioDefault1">
-                Buy
-            </label>
-        </div>
-        <div class="form-check">
-            <input class="form-check-input" name="orderType" [(ngModel)]="orderType" type="radio" id="flexRadioDefault1"
-                value="RENT">
-            <label class="form-check-label" for="flexRadioDefault1">
-                Rent
-            </label>
-        </div>
-        <button type="submit" class="btn btn-outline-primary">Order Now</button>
-    </form>
+<div class="container my-5">
+  <div class="text-center mb-4">
+    <h3 class="text-danger fw-bold">Place Your Order</h3>
+    <p class="text-muted">Choose how you want to get your book</p>
+    <hr style="width: 100px; margin: 10px auto; border: 2px solid #dc3545;">
+  </div>
 
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card shadow rounded p-4">
+        <h5 class="mb-3 text-secondary">Select Order Type</h5>
+
+        <form #order="ngForm" (ngSubmit)="saveOrder(order.value)">
+          <div class="form-check d-flex align-items-center mb-3">
+            <input
+              class="form-check-input me-2"
+              type="radio"
+              name="orderType"
+              [(ngModel)]="orderType"
+              value="BUY"
+              id="buyOption">
+            <label class="form-check-label w-100 d-flex align-items-center" for="buyOption">
+              <i class="bi bi-bag-fill text-danger me-2"></i>
+              <span>Buy (Permanent Ownership)</span>
+            </label>
+          </div>
+
+          <div class="form-check d-flex align-items-center mb-4">
+            <input
+              class="form-check-input me-2"
+              type="radio"
+              name="orderType"
+              [(ngModel)]="orderType"
+              value="RENT"
+              id="rentOption">
+            <label class="form-check-label w-100 d-flex align-items-center" for="rentOption">
+              <i class="bi bi-calendar2-week-fill text-danger me-2"></i>
+              <span>Rent (Limited Time Access)</span>
+            </label>
+          </div>
+
+          <div class="text-end">
+            <button type="submit" class="btn btn-danger px-4">
+              Order Now <i class="bi bi-arrow-right-short"></i>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
 </div>
